@@ -68,9 +68,20 @@ function add(input) {
     return sum;
 }
 
-test("should test input data", () => {
+/*test("should test input data", () => {
     testDataAdd.forEach(({input, result}) => {
         expect(add(input)).toEqual(result);
     })
-})
+})*/
 
+test("should add up", () => {
+    expect(add([1,2,3])).toEqual(6); 
+ })
+
+ test("should only add up the numbers", () => {
+    expect(add([1,2,5,null, 'ab', NaN])).toEqual(8); 
+ })
+
+ test("should fail and show '0123'", () => {
+    expect(add(['ab', null, '123'])).toEqual('0123'); 
+ })
