@@ -52,12 +52,12 @@ const testDataAdd = [
     },
     {
         input: ['ab', null, '123'],
-        result: '0123'
+        result: 'ab123'
     }
 ]
 
 
-function add(input) {
+/*function add(input) {
     let sum = 0
     for(let i = 0;i < input.length; i++){
         if (!(isNaN( input[i]) || input[i] === null )) {
@@ -66,15 +66,23 @@ function add(input) {
     }
     console.log(input);
     return sum;
+}*/
+
+function sumArray(input) {
+    const sum = input.reduce((acumulator, item) => {
+        return  (!(isNaN(item) || item === null )) ? acumulator+=item : acumulator
+    })
+    console.log(input);
+    return sum;
 }
 
-/*test("should test input data", () => {
+test("should test input data", () => {
     testDataAdd.forEach(({input, result}) => {
-        expect(add(input)).toEqual(result);
+        expect(sumArray(input)).toEqual(result);
     })
-})*/
+})
 
-test("should add up", () => {
+/*test("should add up", () => {
     expect(add([1,2,3])).toEqual(6); 
  })
 
@@ -82,6 +90,27 @@ test("should add up", () => {
     expect(add([1,2,5,null, 'ab', NaN])).toEqual(8); 
  })
 
- test("should fail and show '0123'", () => {
-    expect(add(['ab', null, '123'])).toEqual('0123'); 
+ test("should fail and show 'ab123'", () => {
+    expect(add(['ab', null, '123'])).toEqual('ab123'); 
  })
+
+ test("should show null", () => {
+    expect(add([null])).toEqual(null); 
+ })
+
+ test("should fail and show ' '", () => {
+    expect(add([" "])).toEqual(' '); 
+ })
+
+ test("should pass and show '0'", () => {
+    expect(add([0])).toEqual(0); 
+ })
+
+ test("should pass and show '0' :)", () => {
+    expect(add([-1, 1])).toEqual(0); 
+ })
+
+ test("should show NaN :D", () => {
+    expect(add([NaN])).toEqual(NaN); 
+ })*/
+ 
