@@ -82,35 +82,3 @@ test("should test input data", () => {
     })
 })
 
-/*test("should add up", () => {
-    expect(add([1,2,3])).toEqual(6); 
- })
-
- test("should only add up the numbers", () => {
-    expect(add([1,2,5,null, 'ab', NaN])).toEqual(8); 
- })
-
- test("should fail and show 'ab123'", () => {
-    expect(add(['ab', null, '123'])).toEqual('ab123'); 
- })
-
- test("should show null", () => {
-    expect(add([null])).toEqual(null); 
- })
-
- test("should fail and show ' '", () => {
-    expect(add([" "])).toEqual(' '); 
- })
-
- test("should pass and show '0'", () => {
-    expect(add([0])).toEqual(0); 
- })
-
- test("should pass and show '0' :)", () => {
-    expect(add([-1, 1])).toEqual(0); 
- })
-
- test("should show NaN :D", () => {
-    expect(add([NaN])).toEqual(NaN); 
- })*/
- 
