@@ -82,3 +82,70 @@ test("should test input data", () => {
     })
 })
 
+// JavaScript program to print DFS
+      // traversal from a given given
+      // graph
+  
+      // This class represents a
+      // directed graph using adjacency
+      // list representation
+
+const DFS = [
+    {
+        input:[[0,1],[0,2], [1,2],[2,0],[2,3],[3,3]],
+        result:{"Node": [[0, 1], [0, 2], [1, 2], [2, 0], [2, 3], [3, 3]], "adjectiv": [[]]}
+    }
+]
+
+class Graph {
+    //constructor
+    constructor(node) {
+        this.Node = node;
+        this.adjectiv = new Array(node).fill([]);
+    }
+
+    // Function to Add an edge into the graph
+    AddEdge(node, width) {
+        this.adjectiv[node].push(width) // Add width to nodes list.
+    }
+
+    // A function used by DFS
+    DFSUtil(node, visited){
+        // Mark the current
+        // node as visited and print it
+        visited[node] = true; 
+        document.write(node + " ");
+
+        // Recur for all the
+        // vertices adjacent to this
+        // vertex
+        for (const n of this.adjectiv[node]) {
+            if (!visited[n]) this.DFSUtil(n, visited);
+        }
+    }
+     // The function to do
+     // DFS traversal. It uses recursive
+    // DFSUtil()
+
+DFSFunction(){
+    // Mark all the vertices as not visited(set as
+    var visited = new Array(this.Node).fill(false);
+  
+    // Call the recursive helper
+    // function to print DFS
+    // traversal starting from
+    // all vertices one by one
+    for (var i = 0; i < this.Node; ++i){
+      if (visited[i] === false){
+        this.DFSUtil(i, visited);
+      }   
+  }
+}
+
+}
+
+test("should test input", () => {
+    DFS.forEach(({input, result}) => {
+        expect(new Graph(input)).toEqual(result);
+    })
+})
