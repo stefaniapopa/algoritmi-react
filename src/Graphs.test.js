@@ -13,21 +13,21 @@ const testData = [
     {
         start: "A",
         finish: "C",
-        shortestPath: ["A", "C"]
+        shortestPath: {"distance": 4, "path": ["A", "C"]}
     },
     {
         start: "start",
         finish: "finish",
-        shortestPath: ["Start", "bla bla", "finish"]
+        shortestPath: {"distance": 8, "path": ["start", "A", "D", "finish"]}
     }
 ]
 
-// test("should find shortest path given list of predefined data", () => {
-//     testData.forEach((testDataObject) => {
-//         const {start, finish, shortestPath} = testDataObject || {};
-//         expect(getShortestPath(graph, start, finish)).toEqual(shortestPath);
-//     });
-// });
+ test("should find shortest path given list of predefined data", () => {
+     testData.forEach((testDataObject) => {
+         const {start, finish, shortestPath} = testDataObject || {};
+         expect(getShortestPath(graph, start, finish)).toEqual(shortestPath);
+     });
+ });
 
 // test("should pass", () => {
 //     expect(true).toEqual(true); //da
